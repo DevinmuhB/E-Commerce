@@ -110,8 +110,8 @@ $cart_items = $cart_items_stmt->get_result();
     <header>
         <div class="container top-nav">
             <a href="index.php" class="logo"><img src="resource/img/logo-black.png" alt=""></a>
-            <form action="" class="search">
-                <input type="search" placeholder="Search for products...">
+            <form action="all_products.php" method="GET" class="search">
+                <input type="search" name="search" placeholder="Search for products..." value="<?= htmlspecialchars($_GET['search'] ?? '') ?>">
                 <button type="submit">Search</button>
             </form>
 
