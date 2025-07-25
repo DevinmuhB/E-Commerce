@@ -391,11 +391,17 @@ $cart_items = $cart_items_stmt->get_result();
                             <div class="price">
                                 <p>Rp <?= number_format($produk['harga'], 0, ',', '.') ?></p>
                             </div>
-                            <button type="button" class="btnKeranjang btn-action" data-id="<?= $produk['id_produk'] ?>">Keranjang</button>
-                            <form action="checkout.php" method="get">
-                                <input type="hidden" name="beli" value="<?= $produk['id_produk'] ?>">
-                                <button type="submit" class="btn-action btn-beli">Beli</button>
-                            </form>
+                            <div class="button-container">
+                                <button type="button" class="btnKeranjang btn-action" data-id="<?= $produk['id_produk'] ?>">
+                                    <i class="fa fa-shopping-cart"></i> Keranjang
+                                </button>
+                                <form method="post" action="checkout.php" style="margin: 0;">
+                                    <input type="hidden" name="id_produk" value="<?= $produk['id_produk'] ?>">
+                                    <button type="submit" class="btn-action btn-beli">
+                                        <i class="fa fa-bolt"></i> Beli Sekarang
+                                    </button>
+                                </form>
+                            </div>
                         </div>
                     <?php endforeach; ?>
                 </div>
@@ -489,11 +495,17 @@ $cart_items = $cart_items_stmt->get_result();
                             <div class="price">
                                 <p>Rp <?= number_format($produk['harga'], 0, ',', '.') ?></p>
                             </div>
-                            <button type="button" class="btnKeranjang btn-action" data-id="<?= $produk['id_produk'] ?>">Keranjang</button>
-                            <form method="post" action="checkout.php">
-                                <input type="hidden" name="id_produk" value="<?= $produk['id_produk'] ?>">
-                                <button type="submit" class="btn-action btn-beli">Beli</button>
-                            </form>
+                            <div class="button-container">
+                                <button type="button" class="btnKeranjang btn-action" data-id="<?= $produk['id_produk'] ?>">
+                                    <i class="fa fa-shopping-cart"></i> Keranjang
+                                </button>
+                                <form method="post" action="checkout.php" style="margin: 0;">
+                                    <input type="hidden" name="id_produk" value="<?= $produk['id_produk'] ?>">
+                                    <button type="submit" class="btn-action btn-beli">
+                                        <i class="fa fa-bolt"></i> Beli Sekarang
+                                    </button>
+                                </form>
+                            </div>
                         </div>
                     <?php endforeach; ?>
                 </div>
@@ -586,11 +598,17 @@ $cart_items = $cart_items_stmt->get_result();
                             <div class="price">
                                 <p>Rp <?= number_format($produk['harga'], 0, ',', '.') ?></p>
                             </div>
-                            <button type="button" class="btnKeranjang btn-action" data-id="<?= $produk['id_produk'] ?>">Keranjang</button>
-                            <form method="post" action="checkout.php">
-                                <input type="hidden" name="id_produk" value="<?= $produk['id_produk'] ?>">
-                                <button type="submit" class="btn-action btn-beli">Beli</button>
-                            </form>
+                            <div class="button-container">
+                                <button type="button" class="btnKeranjang btn-action" data-id="<?= $produk['id_produk'] ?>">
+                                    <i class="fa fa-shopping-cart"></i> Keranjang
+                                </button>
+                                <form method="post" action="checkout.php" style="margin: 0;">
+                                    <input type="hidden" name="id_produk" value="<?= $produk['id_produk'] ?>">
+                                    <button type="submit" class="btn-action btn-beli">
+                                        <i class="fa fa-bolt"></i> Beli Sekarang
+                                    </button>
+                                </form>
+                            </div>
                         </div>
                     <?php endforeach; ?>
                 </div>
