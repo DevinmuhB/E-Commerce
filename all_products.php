@@ -8,6 +8,9 @@ function getKategori($conn) {
 }
 
 $kategoriList = getKategori($conn);
+
+// Ambil parameter search dari URL
+$searchQuery = isset($_GET['search']) ? trim($_GET['search']) : '';
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -22,8 +25,9 @@ $kategoriList = getKategori($conn);
     <header>
         <div class="container top-nav">
             <a href="index.php" class="logo"><img src="resource/img/logo-black.png" alt=""></a>
-            <form action="" class="search">
-                <input type="search" placeholder="Search for products...">
+            <!-- Update form search dengan value dari parameter -->
+            <form action="all_products.php" method="GET" class="search">
+                <input type="search" name="search" placeholder="Search for products..." value="<?= htmlspecialchars($searchQuery) ?>">
                 <button type="submit">Search</button>
             </form>
             <div class="cart_header">
@@ -87,6 +91,15 @@ $kategoriList = getKategori($conn);
     <section class="all_products">
         <div class="container">
             <span class="btn_filter" onclick="open_close_filter()">filter <i class="fa-solid fa-filter"></i></span>
+            
+            <!-- Tampilkan info pencarian jika ada -->
+            <?php if (!empty($searchQuery)): ?>
+            <div class="search_info" style="background: #fff; padding: 15px; margin-bottom: 20px; border-radius: 5px; border-left: 4px solid var(--main-color);">
+                <p><strong>Hasil pencarian untuk:</strong> "<?= htmlspecialchars($searchQuery) ?>"</p>
+                <a href="all_products.php" style="color: var(--main-color); text-decoration: none;">← Tampilkan semua produk</a>
+            </div>
+            <?php endif; ?>
+            
             <div class="filter">
                 <h2>Filter</h2>
                 <div class="filter_item">
@@ -149,6 +162,9 @@ $kategoriList = getKategori($conn);
                 }
             });
         }
+        
+        // Pass search query to JavaScript
+        const searchQuery = "<?= addslashes($searchQuery) ?>";
     </script>
     <script src="resource/js/main.js"></script>
     <script src="resource/js/all_products.js"></script>
