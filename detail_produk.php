@@ -359,51 +359,14 @@ $cart_items = $cart_items_stmt->get_result();
     </div>
 </div>
     <footer>
-        <div class="container">
-            <div class="row">
-                <h4>FAQs & Help</h4>
-                <div class="links">
-                    <a href="#">F.A.Q.’s</a>
-                    <a href="#">Ordering Tracking</a>
-                    <a href="#">Contacts</a>
-                    <a href="#">Events</a>
-                    <a href="#">Help Center</a>
-                </div>
-            </div>
-
-            <div class="row">
-                <h4>Shipping & Delivery</h4>
-
-                <div class="links">
-                    <a href="#">Delivery Information</a>
-                    <a href="#">Discount</a>
-                    <a href="#">Payment & Shipping</a>
-                    <a href="#">Estimated Delivery Time</a>
-                    <a href="#">Shipping Guide</a>
-                </div>
-            </div>
-
-            <div class="row">
-                <h4>Information</h4>
-
-                <div class="links">
-                    <a href="#">Popular</a>
-                    <a href="#">Our Services</a>
-                    <a href="#">Your Account</a>
-                    <a href="#">Privacy Policy</a>
-                    <a href="#">Terms & Condition</a>
-                </div>
-            </div>
-        </div>
-
         <div class="bottom_footer">
             <div class="container">
                 <p>Copyright &copy; <span>TechShop.</span> all rights reserved</p>
                 <div class="payment_img">
-                    <img src="resource/img/payment-1.png" alt="">
-                    <img src="resource/img/payment-2.png" alt="">
-                    <img src="resource/img/payment-3.png" alt="">
-                    <img src="resource/img/payment-4.png" alt="">
+                    <img src="resource/img/payment-1.jpg" alt="">
+                    <img src="resource/img/payment-2.jpg" alt="">
+                    <img src="resource/img/payment-3.jpg" alt="">
+                    <img src="resource/img/payment-4.jpg" alt="">
                 </div>
             </div>
         </div>
