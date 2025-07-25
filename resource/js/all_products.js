@@ -1,8 +1,13 @@
 let currentPage = 1;
 let isLoading = false;
 let currentKategori = '';
+let currentSearch = '';
 
 document.addEventListener('DOMContentLoaded', function() {
+    // Get search query from global variable or URL
+    const urlParams = new URLSearchParams(window.location.search);
+    currentSearch = urlParams.get('search') || '';
+    
     loadProducts();
     setupFilters();
     loadCart(); // Load cart count on page load
@@ -31,7 +36,10 @@ function loadProducts() {
     
     if (loader) loader.style.display = 'block';
     
-    const url = `load_product.php?page=${currentPage}&kategori=${currentKategori}`;
+    // Build URL with parameters
+    let url = `load_product.php?page=${currentPage}`;
+    if (currentKategori) url += `&kategori=${encodeURIComponent(currentKategori)}`;
+    if (currentSearch) url += `&search=${encodeURIComponent(currentSearch)}`;
     
     fetch(url)
         .then(response => response.text())
