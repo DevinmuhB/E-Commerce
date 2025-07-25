@@ -47,12 +47,14 @@ while ($produk = $result->fetch_assoc()):
 ?>
 <div class="product-card">
     <div class="img_product">
-        <img class="img_main" src="<?= htmlspecialchars($foto1) ?>" alt="gambar utama">
-        <img class="img_hover" src="<?= htmlspecialchars($foto2) ?>" alt="gambar hover">
+        <img class="img_main" src="<?= htmlspecialchars($foto1) ?>" alt="<?= htmlspecialchars($produk['nama_produk']) ?>">
+        <img class="img_hover" src="<?= htmlspecialchars($foto2) ?>" alt="<?= htmlspecialchars($produk['nama_produk']) ?>">
     </div>
+    
     <div class="name_product">
         <a href="detail_produk.php?id=<?= $produk['id_produk'] ?>"><?= htmlspecialchars($produk['nama_produk']) ?></a>
     </div>
+    
     <div class="stars">
         <?php
         $avg = $ratingMap[$produk['id_produk']] ?? 0;
@@ -67,13 +69,22 @@ while ($produk = $result->fetch_assoc()):
             <i class="fa fa-star-o"></i>
         <?php endfor; ?>
     </div>
+    
     <div class="price">
         <p>Rp <?= number_format($produk['harga'], 0, ',', '.') ?></p>
     </div>
-    <button type="button" class="btnKeranjang btn-action" data-id="<?= $produk['id_produk'] ?>">Keranjang</button>
-    <form method="post" action="checkout.php">
-        <input type="hidden" name="id_produk" value="<?= $produk['id_produk'] ?>">
-        <button type="submit" class="btn-action btn-beli">Beli</button>
-    </form>
+    
+    <!-- Button container with proper ordering -->
+    <div class="button-container">
+        <button type="button" class="btnKeranjang btn-action" data-id="<?= $produk['id_produk'] ?>">
+            <i class="fa fa-shopping-cart"></i> Tambah ke Keranjang
+        </button>
+        <form method="post" action="checkout.php" style="margin: 0;">
+            <input type="hidden" name="id_produk" value="<?= $produk['id_produk'] ?>">
+            <button type="submit" class="btn-action btn-beli">
+                <i class="fa fa-bolt"></i> Beli Sekarang
+            </button>
+        </form>
+    </div>
 </div>
 <?php endwhile; ?>
