@@ -2,9 +2,9 @@
 require_once '../vendor/autoload.php';
 
 $client = new Google_Client();
-$client->setClientId('287918867373-e1tfb1vkp0g9fsvir6mump4jgrc88nnu.apps.googleusercontent.com');
-$client->setClientSecret('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');
-$client->setRedirectUri('http://localhost/skripsi/auth/google-callback.php');
+$client->setClientId('YOUR CLIENT ID');
+$client->setClientSecret('YOUR CLIENT SECRET');
+$client->setRedirectUri('YOUR URL CALLBACK');
 $client->addScope("email");
 $client->addScope("profile");
 
