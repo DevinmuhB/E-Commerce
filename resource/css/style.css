@@ -493,16 +493,18 @@ header .links .loging_signup a{
     font-size: 14px;
 }
 
-.product .img_product {
+/* Container gambar produk - UNIVERSAL untuk semua card */
+.img_product {
     position: relative;
     height: 180px;
     display: flex;
     justify-content: center;
     align-items: center;
     overflow: hidden;
+    margin-bottom: 15px;
 }
 
-/* Style dasar untuk semua gambar */
+/* Style dasar untuk SEMUA gambar di dalam .img_product */
 .img_product img {
     max-height: 100%;
     max-width: 100%;
@@ -513,27 +515,30 @@ header .links .loging_signup a{
     position: absolute;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%); /* Center gambar */
+    transform: translate(-50%, -50%);
+    display: block;
 }
 
-/* Gambar utama - tampil default */
+/* Gambar utama - visible by default */
 .img_product .img_main {
     opacity: 1;
     z-index: 2;
 }
 
-/* Gambar hover - tersembunyi default */
+/* Gambar hover - hidden by default */
 .img_product .img_hover {
     opacity: 0;
     z-index: 1;
 }
 
-/* Efek hover */
-.product:hover .img_product .img_main {
+/* Hover effects - untuk SEMUA product cards */
+.product:hover .img_product .img_main,
+.product-card:hover .img_product .img_main {
     opacity: 0;
 }
 
-.product:hover .img_product .img_hover {
+.product:hover .img_product .img_hover,
+.product-card:hover .img_product .img_hover {
     opacity: 1;
 }
 
@@ -983,20 +988,6 @@ header .links .loging_signup a{
     width: 100%;         /* penting untuk isi grid */
     max-width: 100%;     /* jaga biar gak kepanjangan */
 }
-/* Hover image */
-.img_product img.img_hover {
-    position: absolute;
-    top: 0;
-    left: 0;
-    opacity: 0;
-    transition: opacity 0.3s ease;
-  }
-  .img_product:hover img.img_hover {
-    opacity: 1;
-  }
-  .img_product:hover img.img_main {
-    opacity: 0;
-  }
 /* sliders */
 .slide .container{
     position: relative;
